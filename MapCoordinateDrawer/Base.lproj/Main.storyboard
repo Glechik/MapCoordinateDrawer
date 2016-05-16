@@ -5,68 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MapCoordinateDrawer" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="jr0-u3-crb">
-                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <sections>
-                                    <tableViewSection id="orY-Gj-y4D">
-                                        <cells>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="MRp-n2-Kxq" style="IBUITableViewCellStyleDefault" id="OhZ-b0-a6h">
-                                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OhZ-b0-a6h" id="EmK-3d-Va1">
-                                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Mercator projection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MRp-n2-Kxq">
-                                                            <rect key="frame" x="15" y="0.0" width="270" height="43.5"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </tableViewCellContentView>
-                                                <connections>
-                                                    <segue destination="sVf-hf-Nld" kind="show" id="D9W-Ry-4xt"/>
-                                                </connections>
-                                            </tableViewCell>
-                                        </cells>
-                                    </tableViewSection>
-                                </sections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jr0-u3-crb" secondAttribute="bottom" id="6RP-LO-JE3"/>
-                            <constraint firstAttribute="trailing" secondItem="jr0-u3-crb" secondAttribute="trailing" id="L8h-Oc-U7i"/>
-                            <constraint firstItem="jr0-u3-crb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="czT-gk-Gah"/>
-                            <constraint firstItem="jr0-u3-crb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oJU-4z-IhQ"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="qvW-ur-8Um"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="291" y="357"/>
-        </scene>
-        <!--View Controller-->
+        <!--Mercator projection map-->
         <scene sceneID="YlN-gE-4bc">
             <objects>
-                <viewController id="sVf-hf-Nld" sceneMemberID="viewController">
+                <viewController id="sVf-hf-Nld" customClass="MercatorViewController" customModule="MapCoordinateDrawer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qPR-DE-tfN"/>
                         <viewControllerLayoutGuide type="bottom" id="bXg-bu-YMB"/>
@@ -74,13 +16,78 @@
                     <view key="view" contentMode="scaleToFill" id="PiF-Ux-Wue">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mp_Mercator-s60" translatesAutoresizingMaskIntoConstraints="NO" id="mms-zW-fMX">
+                                <rect key="frame" x="-30" y="64" width="381" height="380"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="165-4C-UzG">
+                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="55.75222" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XCP-CN-SVf">
+                                        <rect key="frame" x="35" y="6" width="76" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BOh-Xg-9wW">
+                                        <rect key="frame" x="241" y="7" width="71" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Add point"/>
+                                        <connections>
+                                            <action selector="addPointClick:" destination="sVf-hf-Nld" eventType="touchUpInside" id="RaI-aC-x3M"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="lat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1N5-hR-oCU">
+                                        <rect key="frame" x="8" y="11" width="19" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="lng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moG-ha-Jws">
+                                        <rect key="frame" x="121" y="11" width="24" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="37.61556" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="He8-is-DHd">
+                                        <rect key="frame" x="153" y="6" width="80" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="BOh-Xg-9wW" secondAttribute="trailing" constant="8" id="Vwa-ZH-FHe"/>
+                                    <constraint firstItem="BOh-Xg-9wW" firstAttribute="centerY" secondItem="165-4C-UzG" secondAttribute="centerY" id="p0J-XW-Kqh"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mms-zW-fMX" firstAttribute="top" secondItem="qPR-DE-tfN" secondAttribute="bottom" id="5ra-Tu-wlJ"/>
+                            <constraint firstAttribute="trailing" secondItem="165-4C-UzG" secondAttribute="trailing" id="FSR-XV-y0G"/>
+                            <constraint firstItem="mms-zW-fMX" firstAttribute="centerX" secondItem="PiF-Ux-Wue" secondAttribute="centerX" id="RMI-5b-TXY"/>
+                            <constraint firstItem="165-4C-UzG" firstAttribute="top" secondItem="mms-zW-fMX" secondAttribute="bottom" constant="-8" id="jnV-a0-XcP"/>
+                            <constraint firstAttribute="bottom" secondItem="165-4C-UzG" secondAttribute="bottom" id="v2r-Ex-vCC"/>
+                            <constraint firstItem="165-4C-UzG" firstAttribute="leading" secondItem="PiF-Ux-Wue" secondAttribute="leading" id="yyx-hh-aMa"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Mercator projection map" id="doV-ry-LPD">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="trash" id="Pnl-Eb-dUc">
+                            <connections>
+                                <action selector="clearButtonClick:" destination="sVf-hf-Nld" id="f9T-Gi-hfm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="latLabel" destination="XCP-CN-SVf" id="W2G-pf-a8a"/>
+                        <outlet property="lngLabel" destination="He8-is-DHd" id="DKg-ZO-yeK"/>
+                        <outlet property="mapImageView" destination="mms-zW-fMX" id="FPo-ta-QHM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rhB-8V-6ej" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="663" y="357"/>
+            <point key="canvasLocation" x="541" y="357"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yEz-SH-ba7">
@@ -92,12 +99,15 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ghL-LM-S0y"/>
+                        <segue destination="sVf-hf-Nld" kind="relationship" relationship="rootViewController" id="7mw-Fg-dsj"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RS9-nq-d6e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-127" y="357"/>
+            <point key="canvasLocation" x="137" y="357"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="mp_Mercator-s60" width="381" height="380"/>
+    </resources>
 </document>
