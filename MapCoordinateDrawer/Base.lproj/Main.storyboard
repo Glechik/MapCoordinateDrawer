@@ -57,6 +57,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="BOh-Xg-9wW" secondAttribute="trailing" constant="8" id="Vwa-ZH-FHe"/>
+                                    <constraint firstAttribute="height" constant="44" id="llf-Vx-64m"/>
                                     <constraint firstItem="BOh-Xg-9wW" firstAttribute="centerY" secondItem="165-4C-UzG" secondAttribute="centerY" id="p0J-XW-Kqh"/>
                                 </constraints>
                             </view>
@@ -70,6 +71,11 @@
                             <constraint firstAttribute="bottom" secondItem="165-4C-UzG" secondAttribute="bottom" id="v2r-Ex-vCC"/>
                             <constraint firstItem="165-4C-UzG" firstAttribute="leading" secondItem="PiF-Ux-Wue" secondAttribute="leading" id="yyx-hh-aMa"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="v2r-Ex-vCC"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Mercator projection map" id="doV-ry-LPD">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="trash" id="Pnl-Eb-dUc">
